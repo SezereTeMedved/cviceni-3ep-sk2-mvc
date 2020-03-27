@@ -42,4 +42,29 @@ class PrispevkyController
 
         require_once "viewy/prispevky/prehled.php";
     }
+
+    public function EDITOVAT()
+    {
+        $id = $_GET["id"];
+        $nadpis = $_GET["nadpis"];
+        $obsah = $_GET["obsah"];
+
+        require_once "viewy/prispevky/EDITOVAT.php";
+    }
+    
+    public function upraveno()
+    {
+        $id = trim($_POST["id"]);
+        $nadpis = trim($_POST["nadpis"]);
+        $obsah = trim($_POST["obsah"]);
+
+        $prispevky = Prispevek::upravitPrispevek($id, $nadpis, $obsah);
+    }
+
+    public function ODSTRANIT()
+    {
+        $id = $_GET["id"];
+        $prispevky = Prispevek::odstranitPrispevek($id);
+        require_once "viewy/prispevky/ODSTRANIT.php";
+    }
 }

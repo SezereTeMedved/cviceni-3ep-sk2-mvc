@@ -1,0 +1,1 @@
+<h1>Článek byl odstraněn</h1>

@@ -69,4 +69,25 @@ class Prispevek
 
         return $prispevky;
     }
+    
+
+    static public function odstranitPrispevek($id)
+    {
+        $spojeni = DB::pripojit();
+        $dotaz = "DELETE FROM 3ep_sk2_php_mvc_prispevky WHERE id = '$id'";
+        $vysledek = mysqli_query($spojeni, $dotaz);
+
+        return $vysledek;
+    }
+
+    static public function upravitPrispevek($id, $nadpis, $obsah)
+    {
+        $spojeni = DB::pripojit();
+        $dotaz = "UPDATE 3ep_sk2_php_mvc_prispevky SET nadpis = $nadpis, obsah = $obsah WHERE id = '$id'";
+
+        $vysledek = mysqli_query($spojeni, $dotaz);
+
+        return $vysledek;
+    }
+
 }
