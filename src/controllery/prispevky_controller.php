@@ -46,19 +46,19 @@ class PrispevkyController
     public function EDITOVAT()
     {
         $id = $_GET["id"];
-        $nadpis = $_GET["nadpis"];
-        $obsah = $_GET["obsah"];
+        $data = Prispevek::upravitData($id);
 
         require_once "viewy/prispevky/EDITOVAT.php";
     }
     
     public function upraveno()
     {
-        $id = trim($_POST["id"]);
+        $id = $_GET["id"];
         $nadpis = trim($_POST["nadpis"]);
         $obsah = trim($_POST["obsah"]);
 
         $prispevky = Prispevek::upravitPrispevek($id, $nadpis, $obsah);
+        require_once "viewy/prispevky/upraveno.php";
     }
 
     public function ODSTRANIT()
